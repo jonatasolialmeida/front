@@ -1,5 +1,5 @@
 import react from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const Task = (props) => {
 
@@ -17,13 +17,14 @@ const Task = (props) => {
 const styles = StyleSheet.create({
 
 item: {
-    backgroundColor: 'FFF',
+    backgroundColor: '#FFF',
     padding: 15,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 20,
+    borderRadius: 10,
 },
 itemLeft: {
     flexDirection: 'row',
