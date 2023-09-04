@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Keyboard, StatusBar, ScrollView } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 import Task from './components/Task';
 import Header from './components/Header';
 
@@ -38,8 +40,10 @@ export default function App() {
                 <View style={styles.items}>
                   <Task text={item} />
                 </View>
-                <TouchableOpacity style={styles.trash}>
-                    <Text style={styles.textTrash} key={index} onPress={() => completeTask(index)}>X</Text>
+                <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                  <View style={styles.trash}>
+                    <MaterialCommunityIcons name="trash-can-outline" size={20} color="#FFF" />
+                  </View>
                 </TouchableOpacity>
               </View>
             )
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
   },
   items: {
     width: '90%',
-    marginTop: 30,
+    marginTop: 20,
   },
   writeTaskWrapper: {
     marginVertical: 20,
@@ -110,19 +114,13 @@ const styles = StyleSheet.create({
     flex: 1
   },
   trash: {
-    width: '10%',
-    paddingVertical: 1,
-    paddingHorizontal: 4,
+    width: '100%',
+    backgroundColor: '#EF4646',
+    padding: 15,
+    marginTop: 20,
     borderColor: '#EF4646',
-    borderWidth: 2,
-    borderRadius: 5,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
+    borderWidth: 1.5,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
   },
-  textTrash: {
-    color: '#EF4646',
-    lineHeight: 20,
-    textAlign: 'center'
-  }
 });
