@@ -26,7 +26,11 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-        <Header/>
+      <Header />
+      <ScrollView
+        style={styles.scroll}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.taskWrapper}>
           <View style={styles.items}>
             {
@@ -40,17 +44,18 @@ export default function App() {
             }
           </View>
         </View>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={styles.writeTaskWrapper}
-        >
-          <TextInput style={styles.input} placeholder={'Escreva sua Tarefa'} value={task} onChangeText={text => setTask(text)} />
-          <TouchableOpacity onPress={() => handleAddTask()}>
-            <View style={styles.addWrapper}>
-              <Text style={styles.addText}>+</Text>
-            </View>
-          </TouchableOpacity>
-        </KeyboardAvoidingView>
+      </ScrollView>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.writeTaskWrapper}
+      >
+        <TextInput style={styles.input} placeholder={'Escreva sua Tarefa'} value={task} onChangeText={text => setTask(text)} />
+        <TouchableOpacity onPress={() => handleAddTask()}>
+          <View style={styles.addWrapper}>
+            <Text style={styles.addText}>+</Text>
+          </View>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
     </View>
   );
 }
@@ -61,15 +66,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#171717',
   },
   taskWrapper: {
-    // paddingTop: 80,
     paddingHorizontal: 20,
   },
   items: {
     marginTop: 30,
   },
   writeTaskWrapper: {
-    position: 'absolute',
-    bottom: 60,
+    marginVertical: 20,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -97,4 +100,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: '#20C3D9'
   },
+  scroll: {
+    flex: 1
+  }
 });

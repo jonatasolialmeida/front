@@ -13,16 +13,17 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     header: {
-        height: 80,
+        height: 70,
         backgroundColor: '#20C3D9',
-        marginTop: 30,
-        borderRadius: 15,
+        marginVertical: 30,
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 10,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
     },
     sectionTitle: {
-        fontSize: 30,
+        fontSize: 26,
         fontWeight: 'bold',
         color: '#022529',
       },
