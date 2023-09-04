@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Keyboard, StatusBar, ScrollView } from 'react-native';
 import Task from './components/Task';
+import Header from './components/Header';
 
 export default function App() {
   const [task, setTask] = useState();
@@ -25,9 +26,8 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
+        <Header/>
         <View style={styles.taskWrapper}>
-          <Text style={styles.sectionTitle}>Task de Hoje</Text>
-
           <View style={styles.items}>
             {
               taskItems.map((item, index) => {
@@ -44,7 +44,7 @@ export default function App() {
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={styles.writeTaskWrapper}
         >
-          <TextInput style={styles.input} placeholder={'Escreva sua Task'} value={task} onChangeText={text => setTask(text)} />
+          <TextInput style={styles.input} placeholder={'Escreva sua Tarefa'} value={task} onChangeText={text => setTask(text)} />
           <TouchableOpacity onPress={() => handleAddTask()}>
             <View style={styles.addWrapper}>
               <Text style={styles.addText}>+</Text>
@@ -61,13 +61,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#171717',
   },
   taskWrapper: {
-    paddingTop: 80,
+    // paddingTop: 80,
     paddingHorizontal: 20,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white'
   },
   items: {
     marginTop: 30,
@@ -82,12 +77,11 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 15,
-    backgroundColor: '#3B3B3B',
+    backgroundColor: '#20C3D9',
     borderRadius: 15,
     borderColor: '#2F2F2F',
     borderWidth: 1,
     width: 250,
-    color: '#FFF'
   },
   addWrapper: {
     width: 60,
@@ -101,6 +95,6 @@ const styles = StyleSheet.create({
   },
   addText: {
     fontSize: 22,
-    color: '#FFF'
+    color: '#20C3D9'
   },
 });
