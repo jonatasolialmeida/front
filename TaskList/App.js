@@ -31,19 +31,20 @@ export default function App() {
         style={styles.scroll}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.taskWrapper}>
-          <View style={styles.items}>
-            {
-              taskItems.map((item, index) => {
-                return (
-                  <TouchableOpacity key={index} onPress={() => completeTask(index)}>
-                    <Task text={item} />
-                  </TouchableOpacity>
-                )
-              })
-            }
-          </View>
-        </View>
+        {
+          taskItems.map((item, index) => {
+            return (
+              <View style={styles.taskWrapper}>
+                <View style={styles.items}>
+                  <Task text={item} />
+                </View>
+                <TouchableOpacity style={styles.trash}>
+                    <Text style={styles.textTrash} key={index} onPress={() => completeTask(index)}>X</Text>
+                </TouchableOpacity>
+              </View>
+            )
+          })
+        }
       </ScrollView>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -66,9 +67,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#171717',
   },
   taskWrapper: {
+    width: '100%',
     paddingHorizontal: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   items: {
+    width: '90%',
     marginTop: 30,
   },
   writeTaskWrapper: {
@@ -102,5 +108,21 @@ const styles = StyleSheet.create({
   },
   scroll: {
     flex: 1
+  },
+  trash: {
+    width: '10%',
+    paddingVertical: 1,
+    paddingHorizontal: 4,
+    borderColor: '#EF4646',
+    borderWidth: 2,
+    borderRadius: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  textTrash: {
+    color: '#EF4646',
+    lineHeight: 20,
+    textAlign: 'center'
   }
 });
