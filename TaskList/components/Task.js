@@ -9,7 +9,9 @@ const Task = (props) => {
             <View style={styles.square}></View>
             <Text style={styles.itemText}>{props.text}</Text>
             </View>
-            <View style={styles.circular}></View>
+            <View style={styles.trash}>
+                <Text style={styles.textTrash}>X</Text>
+            </View>
         </View>
     )
 }
@@ -42,13 +44,20 @@ itemText: {
     maxWidth: '80%',
     color: '#FFF'
 },
-circular: {
-    width: 12,
-    height: 12,
-    borderColor: '#20C3D9',
+trash: {
+    paddingVertical: 1,
+    paddingHorizontal: 4,
+    borderColor: '#EF4646',
     borderWidth: 2,
     borderRadius: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
 },
+textTrash: {
+    color: '#EF4646'
+
+}
 
 });
 
